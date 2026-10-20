@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clicnical Services | Community Healthcare Clinic Wireframe</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <header role="banner">
+        <h1>Community healthcare Clinic</h1>
+        <nav aria-label="Main Navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="listing.html" aria-current="page">Clinical Services</a></li>
+                <li><a href="booking.html">Book Appointment</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <h2>Clinical Services & Practitioner Availability</h2>
+
+        <div style="display: flex; gap: 2rem; margin-top: 1.5rem; flex-wrap: wrap;">
+            <aside class="card" aria-labelledby="triage-heading" style="flex: 1; min-width: 220px;">
+                <h3 id="triage-heading">Triage & Filter Services</h3>
+                <form action="">
+                    <div class="form-group">
+                        <label for="search-service">Search Service or Doctor</label>
+                        <input type="text" id="search-service" placeholder="e.g., Dental, Pediatrics">
+                    </div>
+                    <fieldset>
+                        <legend>Specialty</legend>
+                        <div>
+                            <input type="checkbox" id="spec-general" name="specialty" value="general">
+                            <label for="spec-general" style="display:inline;"> General Practice</label>
+                        </div>
+                        <div style="margin-top: 0.5rem;">
+                            <input type="checkbox" id="spec-triage" name="specialty" value="triage">
+                            <label for="spec-triage" style="display:inline;"> Urgent Triage</label>
+                        </div>
+                    </fieldset>
+                    
+                    <button type="submit" class="btn-primary" style="width: 100%">Filter Services</button>
+                </form>
+            </aside>
+
+            <section aria-labelledby="results-heading" style="flex: 3; min-width: 300px;">
+                <h3 id="results-heading">Available Care Options (2 Found)</h3>
+                <div class="card-grid" style="grid-template-columns: 1fr;">
+                    <article class="card">
+                        <h4>Primary Care Consultation</h4>
+                        <p><strong>Department:</strong> General Practice | <strong>Availability:</strong> Next available today</p>
+                        <p>Comprehensive physical assessments, prescription renewals, and specialist referrals.</p>
+                        <a href="booking.html" class="btn-primary" style="margin-top: 1rem;">Schedule Appointment</a>
+                    </article>
+
+                    <article class="card">
+                        <h4>Routine Chronic Disease Screening</h4>
+                        <p><strong>Department:</strong> Preventive Health | <strong>Availability:</strong> Tomorrow morning</p>
+                        <p>Blood pressure monitoring, glucose testing, and health management check-ups.</p>
+                        <a href="booking.html" class="btn-primary" style="margin-top: 1rem;">Schedule Appointment</a>
+                    </article>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Community Healthcare Clinic.</p>
+    </footer>
+</body>
+</html>
