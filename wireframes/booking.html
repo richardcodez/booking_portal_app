@@ -7,6 +7,52 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    
+    <header role="banner">
+        <h1>Community Healthcare Clinic</h1>
+        <nav aria-label="Main Navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="listing.html">Clinical Services</a></li>
+                <li><a href="booking.html" aria-current="page">Book Appointment</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <h2>Book a Medical Appointment</h2>
+        <p>Please provide patient information and select any accessibility support needed for your visit.</p>
+
+        <form action="" style="max-width: 600px; margin-top: 1.5rem;" novalidate>
+            <div class="form-group">
+                <label for="patient-name">Patient Full Name <span aria-hidden="true">*</span></label>
+                <p id="name-hint" class="helper-text">Enter first and last name matching official identity records.</p>
+                <input type="text" id="patient-name" name="patientName" aria-required="true" aria-describedby="name-hint">
+            </div>
+            <div class="form-group">
+                <label for="contact-number">Contact Phone Number <span aria-hidden="true">*</span></label>
+                <p id="phone-hint" class="helper-text">We will send appointment reminders to this number.</p>
+                <input type="text" id="contact-number" name="contactNumber" aria-required="true" aria-describedby="phone-hint">
+            </div>
+            <fieldset>
+                <legend>Clinic Accessibility Support</legend>
+                <p id="acc-hint" class="helper-text">Indicate any physical or sensory accommodations required upon arrival.</p>
+
+                <div style="margin-top: 0.5rem;">
+                    <input type="checkbox" id="acc-wheelchair" name="accommodations" value="wheelchair">
+                    <label for="acc-wheelchair" style="display:inline;"> Wheelchair or step-free access needed</label>
+                </div>
+                <div style="margin-top: 0.5rem;">
+                    <input type="checkbox" id="acc-interpreter" name="accommodations" value="interpreter">
+                    <label for="acc-interpreter" style="display:inline;"> Sign language or translation assistance</label>
+                </div>
+            </fieldset>
+
+            <button type="submit" class="btn-primary">Confirm Appointment</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Community Healthcare Clinic.</p>
+    </footer>
 </body>
 </html>
