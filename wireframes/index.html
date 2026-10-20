@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Community Healthcare Clinic Wireframe</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <header role="banner">
+        <h1>Community Healthcare Clinic</h1>
+        <nav aria-label="Main Navigation">
+            <ul>
+                <li><a href="index.html" aria-current="page">Home</a></li>
+                <li><a href="listing.html">Clinical Services</a></li>
+                <li><a href="booking.html">Book Appointment</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <section aria-labelledby="welcome-heading">
+            <h2 id="welcome-heading">Accessible Community Healthcare Services</h2>
+            <p>Schedule clinical consultations, view practitioner availability, and access local triage care easily.</p>
+        </section>
+
+        <div style="display: flex; gap: 2rem; margin-top: 2rem; flex-wrap: wrap;">
+            <section aria-labelledby="services-heading" style="flex: 2; min-width: 300px;">
+                <h3 id="services-heading">Featured Primary Care Services</h3>
+                <div class="card-grid">
+                    <article class="card">
+                        <h4>General Practitioner Consultations</h4>
+                        <p>Routine health check-ups, ongoing treatment plans, and doctor referrals.</p>
+                        <a href="booking.html" class="btn-primary" style="margin-top: 1rem;">Book Practitioner</a>
+                    </article>
+
+                    <article class="card">
+                        <h4>Urgent Care & Triage</h4>
+                        <p>Same-day evaluations for non-life-threatening health concerns.</p>
+                        <a href="listing.html" class="btn-primary" style="margin-top: 1rem;">View Services</a>
+                    </article>
+                </div>
+            </section>
+
+            <aside class="card" aria-labelledby="clinic-info-heading" style="flex: 1; min-width: 250px;">
+                <h3 id="clinic-info-heading">Clinic Information</h3>
+                <p><strong>Clinic Hours:</strong> Mon - Fri: 7:30 AM - 5:00 PM</p>
+                <p style="margin-top: 0.5rem;"><strong>Emergency Triage:</strong> Walk-ins accepted daily before 3:00 PM.</p>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Community Healthcare Clinic. Built for Marlowe Digital Ticket MD-2026-0143.</p>
+    </footer>
+</body>
+</html>
