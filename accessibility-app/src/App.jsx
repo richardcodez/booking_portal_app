@@ -1,122 +1,149 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import { useState } from "react";
+import Home from "./components/Home";
+import ResourceDirectory from "./components/ResourceDirectory";
+import BookingForm from "./components/BookingForm";
+import Modal from "./components/Modal";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [activeTab, setActiveTab] = useState("home");
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
+      <div className="min-h-screen bg-gray-100 text-gray-900 flex flex-col justify-between">
         <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
+          {/* Skipping Navigation Link for Screen Readers */}
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:bg-blue-900 focus:text-white focus:p-3 focus:z-50 focus:rounded"
+          >
+            Skip to main content
+          </a>
+
+          {/* Header & Global Navigation */}
+          <header className="bg-blue-950 text-white p-4 shadow-md">
+            <div className="max-w-5xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+              <h1 className="text-2xl font-bold tracking-tight">
+                <button
+                  type="submit"
+                  onClick={() => setActiveTab('home')}
+                  className="hover:underline focus-visible:outline focus-visible:outline-white focus-visible:outline-offset-4 rounded text-left"
+                  aria-label="Community Healthcare Clinic - Return to homepage"
+                >
+                  Community Healthcare Clinic
+                </button>
+              </h1>
+              <nav aria-label="Main Application Navigation">
+                <ul className="flex gap-2 sm:gap-4">
+                  <li>
+                    <button
+                      type="button"
+                      onClick={() => setActiveTab("home")}
+                      aria-current={activeTab === "home" ? "page" : undefined}
+                      className={`px-3 py-1.5 rounded font-semibold transition-colors ${
+                        activeTab === "home"
+                          ? "bg-blue-800 text-white underline"
+                          : "hover:bg-blue-900"
+                      }`}
+                    >
+                      Home
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      type="button"
+                      onClick={() => setActiveTab("directory")}
+                      aria-current={
+                        activeTab === "directory" ? "page" : undefined
+                      }
+                      className={`px-3 py-1.5 rounded font-semibold transition-colors ${
+                        activeTab === "directory"
+                          ? "bg-blue-800 text-white underline"
+                          : "hover:bg-blue-900"
+                      }`}
+                    >
+                      Clinical Services
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      type="button"
+                      onClick={() => setActiveTab("booking")}
+                      aria-current={
+                        activeTab === "booking" ? "page" : undefined
+                      }
+                      className={`px-3 py-1.5 rounded font-semibold transition-colors ${
+                        activeTab === "booking"
+                          ? "bg-blue-800 text-white underline"
+                          : "hover:bg-blue-900"
+                      }`}
+                    >
+                      Book Appointment
+                    </button>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </header>
+
+          {/* Main Content View Switcher */}
+          <main
+            id="main-content"
+            className="max-w-5xl mx-auto p-4 sm:p-6 w-full"
+          >
+            {activeTab === "home" && (
+              <Home
+                onNavigate={setActiveTab}
+                onOpenInfoModal={() => setIsModalOpen(true)}
+              />
+            )}
+
+            {activeTab === "directory" && <ResourceDirectory />}
+
+            {activeTab === "booking" && (
+              <div className="flex justify-center">
+                <BookingForm />
+              </div>
+            )}
+          </main>
         </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
+
+        {/* Shared Dialog Modal */}
+        <Modal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          title="Clinic Contact & Information"
         >
-          Count is {count}
-        </button>
-      </section>
+          <div className="space-y-3 text-gray-800">
+            <p>
+              <strong>Address:</strong> 124 Main Health Drive, Building B
+            </p>
+            <p>
+              <strong>Hours:</strong> Monday – Friday, 7:30 AM – 5:00 PM
+            </p>
+            <p>
+              <strong>Urgent Triage Desk:</strong> Walk-in evaluations are
+              available weekdays before 3:00 PM.
+            </p>
+            <button
+              type="button"
+              onClick={() => setIsModalOpen(false)}
+              className="mt-4 px-4 py-2 bg-blue-900 text-white font-bold rounded w-full"
+            >
+              Close Information Dialog
+            </button>
+          </div>
+        </Modal>
 
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
+        {/* Global Footer */}
+        <footer className="bg-gray-200 text-gray-700 p-6 text-center border-t border-gray-300">
+          <p className="text-sm">
+            &copy; 2026 Community Healthcare Clinic.
+          </p>
+        </footer>
+      </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

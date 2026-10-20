@@ -1,13 +1,15 @@
 import { useRef, useEffect } from "react";
 
-function Modal({isOpen, onClose, titlke, children}) {
+function Modal({isOpen, onClose, title, children}) {
     const modalRef = useRef(null);
     const previousFocusRef = useRef(null);
 
     useEffect(() => {
         if (isOpen) {
             previousFocusRef.current = document.activeElement;
-            modalRef.current?.focus();
+            setTimeout(() => {
+                modalRef.current?.focus();
+            }, 50)
 
             const handleDown = (e) => {
                 if (e.key === 'Escape') onClose();

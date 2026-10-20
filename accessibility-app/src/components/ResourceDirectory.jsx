@@ -31,9 +31,9 @@ function Resourcedirectory() {
   const specialties = ["All", "General", "Triage", "Pediatrics"];
 
   const filteredServices =
-    selectedSpeciality === "All"
+    selectedSpecialty === "All"
       ? services
-      : services.filter((s) => s.specialty === selectedSpeciality);
+      : services.filter((s) => s.specialty === selectedSpecialty);
 
   return (
     <section
