@@ -28,7 +28,7 @@ While custom ARIA listboxes offer total design freedom, they often break native 
 #### Automated Audit Results
 - **Lighthouse Accessibility Score:** 100 / 100
 - #### **Lighthouse Report:**
-    ![alt text](wireframes/lighthouse.png)
+    ![lighthouse report screenshot](wireframes/lighthouse.png)
 
 ## How To Run Project
 
