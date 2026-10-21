@@ -27,6 +27,8 @@ While custom ARIA listboxes offer total design freedom, they often break native 
 
 #### Automated Audit Results
 - **Lighthouse Accessibility Score:** 100 / 100
+- #### **Lighthouse Report:**
+    ![alt text](wireframes/lighthouse.png)
 
 ## How To Run Project
 
@@ -37,4 +39,4 @@ While custom ARIA listboxes offer total design freedom, they often break native 
     npm install
     npm run dev
     ```
-4. Open your browser and go to http://localhost:5173
+3. Open your browser and go to http://localhost:5173
