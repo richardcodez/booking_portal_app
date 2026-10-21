@@ -26,8 +26,8 @@ describe('App SPA Navigation', () => {
         const user = userEvent.setup();
         render(<App />);
 
-        // Navigate away first
-        await user.click(screen.getByRole('button', { name: /Book Appointment/i }));
+        const bookTabs = screen.getAllByRole('button', { name: /Book Appointment/i });
+        await user.click(bookTabs[0]);
 
         // Click brand title home button
         const homeBrandBtn = screen.getByRole('button', { name: /Community Healthcare Clinic - Return to homepage/i });

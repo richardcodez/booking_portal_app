@@ -25,7 +25,7 @@ function App() {
             <div className="max-w-5xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
               <h1 className="text-2xl font-bold tracking-tight">
                 <button
-                  type="submit"
+                  type="button"
                   onClick={() => setActiveTab('home')}
                   className="hover:underline focus-visible:outline focus-visible:outline-white focus-visible:outline-offset-4 rounded text-left"
                   aria-label="Community Healthcare Clinic - Return to homepage"
